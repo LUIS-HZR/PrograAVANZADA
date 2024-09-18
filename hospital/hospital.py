@@ -5,8 +5,8 @@ from consulta.consulta import Consulta
 
 class Hospital:
     pacientes: List[Paciente]=[]
-    pacientes_menores = []
-    pacientes_mayores = []
+    pacientes_menores: List[Paciente]= []
+    pacientes_mayores: List[Paciente]= []
     medicos: List[Medico]=[]
     consultas: List[Consulta]=[]
 
@@ -76,7 +76,7 @@ class Hospital:
                 print("\n++++++++++++++++")
                 
         if len(self.pacientes_mayores) == 0:
-                    print("NO HAY PACIENTES MENORES DE EDAD")
+                    print("NO HAY PACIENTES MAYORES DE EDAD")
         else:
             return
     

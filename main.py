@@ -4,36 +4,46 @@ from medico.medico import Medico
 
 hospital = Hospital()
 
-paciente_uno = Paciente("Juan", 2004, 76, 1.78, "Av. Madero")
-paciente_dos = Paciente("Jesus", 2008, 73, 1.68, "Av. Periodismo")
-paciente_tres = Paciente("Jonathan", 2009, 79, 1.80, "Av. Madero")
-paciente_cuatro = Paciente("Valeria", 2003, 56, 1.60, "Lagos de moreno")
-paciente_cinco = Paciente("Jorge", 2004, 56, 1.68, "Lagos de moreno")
-
-medico_uno = Medico("Chuyin", 2004, "jjsjsjsdjd", "Acueducto")
-medico_dos = Medico("Alberto", 1978, "ALB4817BNDDDF", "Av. Periodismo")
-medico_tres = Medico("Carlos", 1999, "ALB4827BNDJDF", "Av. Periodismo")
-
-hospital.registrar_paciente(paciente=paciente_uno)
-hospital.registrar_paciente(paciente=paciente_dos)
-hospital.registrar_paciente(paciente=paciente_tres)
-hospital.registrar_paciente(paciente=paciente_cuatro)
-hospital.registrar_paciente(paciente=paciente_cinco)
-
-hospital.registrar_medico(medico=medico_uno)
-hospital.registrar_medico(medico=medico_dos)
-hospital.registrar_medico(medico=medico_tres)
 
 while True:
     print("_______________ BIENVENIDO A SISTEMA ________________________")
     print("  + OPCIONES: ")
-    print("        -> MOSTRAR PACIENTES (1)")
-    print("        -> ELIMINAR PACIENTE (2)")
-    print("        -> ELIMINAR MEDICO (3)")
-    print("        -> SALIR (3)")
+    print("        -> AGREGAR PACIENTE (1)")
+    print("        -> AGREGAR MEDICO (2)")
+    print("        -> ELIMINAR PACIENTE (3)")
+    print("        -> ELIMINAR MEDICO (4)")
+    print("        -> MOSTRAR PACIENTES (5)")
+    print("        -> SALIR (6)")
     opcion = input("\nINGRESA LA OPCION: ")
 
     if opcion == "1":
+        print("INGRESE DATOS PARA REGISTRAR PACIENTE")
+
+        nombre = input("INGRESE EL NOMBRE -> ")
+        ano_nacimiento = int(input("INGRESE EL AÑO DE NACIMIENTO -> "))
+        peso = int(input("INGRESE EL PESO -> "))
+        estatura = int(input("INGRESE LA ESTATURA-> "))
+        direccion = input("INGRESE LA DIRECCION-> ")
+
+        paciente = Paciente(nombre=nombre, ano_nacimiento=ano_nacimiento, peso=peso, estatura=estatura, direccion=direccion)
+        hospital.registrar_paciente(paciente=paciente)
+        print("PACIENTE REGISTRADO CORRECTAMENTE")
+
+
+    elif opcion == "2":
+        print("INGRESE DATOS PARA REGISTRAR MEDICO")
+
+        nombre = input("INGRESE EL NOMBRE -> ")
+        ano_nacimiento = int(input("INGRESE EL AÑO DE NACIMIENTO -> "))
+        rfc = input("INGRESE EL RFC -> ")
+        direccion = input("INGRESE LA DIRECCION-> ")
+
+        medico = Medico(nombre=nombre, ano_nacimiento=ano_nacimiento, rfc=rfc, direccion=direccion)
+        hospital.registrar_medico(medico=medico)
+        print("PACIENTE REGISTRADO CORRECTAMENTE")
+
+
+    elif opcion == "5":
         print("+ OPCIONES:")
         print("    -> PACIENTES MENORES DE EDAD(1)")
         print("    -> PACIENTES MAYORES DE EDAD(2)")
@@ -49,16 +59,17 @@ while True:
             hospital.lista_pacientes_mayores(pacientes=[])
             print("CARGA COMPLETADA")
             print("\n")
-    elif opcion == "2":
+
+    elif opcion == "3":
         hospital.mostrar_id()
         id_paciente_eliminar = int(input("\n INGRESE EL ID DEL PACIENTE --> "))
         hospital.eliminar_paciente(id_paciente_eliminar)
         print("\n PACIENTE ELIMINADO")
-    elif opcion == "3":
+    elif opcion == "4":
         hospital.mostrar_med_id()
-        id_medico_eliminar = int(input("\n INGRESE EL ID DEL PACIENTE --> "))
+        id_medico_eliminar = int(input("\n INGRESE EL ID DEL MEDICO --> "))
         hospital.eliminar_paciente(id_medico_eliminar)
-        print("\n PACIENTE ELIMINADO")
+        print("\n MEDICO ELIMINADO")
 
     else:        
         break
