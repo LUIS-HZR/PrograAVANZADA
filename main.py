@@ -1,6 +1,8 @@
 from escuela.escuela import Escuela
 from estudiantes.estudiante import Estudiante
 from datetime import datetime
+from maestros.maestro import Maestro
+from materias.materia import Materia
 
 escuela = Escuela()
 
@@ -33,6 +35,10 @@ while True:
         mes = int(input("Ingresa MES DE NACIMIENTO del estudiante -> "))
         dia = int(input("Ingresa DIA DE NACIMIENTO del estudiante -> "))
         fecha_nacimiento = datetime(ano, mes, dia)
+
+        estudiante = Estudiante(numero_control=numero_control, nombre=nombre, apellido=apellido, curp=curp, fecha_nacimiento=fecha_nacimiento)
+        escuela.registrar_estudiante(estudiante)
+        print(f"Estudiante {nombre} registrado exitosamente.")
         numero_control = escuela.generar_numero_control()
         print(numero_control)
 
@@ -44,6 +50,10 @@ while True:
         apellido = input("Ingresa APELLIDO del maestro -> ")
         rfc = input("Ingresa RFC del maestro -> ")
         ano_nacimiento = int(input("Ingresa AÑO DE NACIMIENTO del maestro -> "))
+        sueldo = float(input("Ingresa el sueldo del maestro: "))
+        maestro = Maestro(numero_control, nombre, apellido, rfc, sueldo)
+        escuela.registrar_maestro(maestro)
+        print(f"Maestro {nombre} registrado exitosamente.")
         numero_control_maestro = escuela.generar_numero_control_maestro(nombre=nombre, rfc=rfc, ano_nacimiento=ano_nacimiento)
         print(numero_control_maestro)
 
@@ -55,6 +65,9 @@ while True:
         semestre = input("Ingresa el SEMESTRE de la materia -> ")
         creditos = int(input("Ingresa los CREDITOS de la mteria -> "))
         id = escuela.generar_id_materia(nombre=nombre, semestre=semestre, creditos=creditos)
+        materia = Materia(numero_control, nombre, descripcion, semestre, creditos)
+        escuela.registrar_materia(materia)
+        print(f"Materia {nombre} registrada exitosamente.")
         print(id)
 
 
@@ -64,14 +77,17 @@ while True:
     elif opcion == "5":
         pass
     elif opcion == "6":
-        escuela.Listar_estudiante()
+        escuela.listar_estudiante()
         print("TERMINO")
     
     elif opcion == "7":
-        
-        pass
+        escuela.listar_maestros()
+        print("TERMINO")
+
     elif opcion == "8":
-        pass
+        escuela.listar_materias()
+        print("TERMINO")
+
     elif opcion == "9":
         pass
     
@@ -80,7 +96,9 @@ while True:
         escuela.eliminar_estudiante(numero_control=numero_control)
 
     elif opcion == "11":
-        pass
+        n_control=input("Ingresa el numero de control del maestro a eliminar")
+        escuela.eliminar_materia(n_control)
+        
     elif opcion == "12":
         pass
     elif opcion == "13":

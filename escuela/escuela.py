@@ -41,7 +41,7 @@ class Escuela:
         id = f"MT{digitos_nombre}{semestre}{creditos}"
         return id
     
-    def Listar_estudiante(self):
+    def listar_estudiante(self):
         for estudiante in self.lista_estudiantes:
             print(estudiante.mostrar_info_estudiante())
         return
@@ -53,7 +53,42 @@ class Escuela:
                 print("Estudiante eliminado")
                 return
             
-        
+    def listar_maestros(self):
+            if not self.lista_maestros:
+                print("No hay maestros registrados.")
+            else:
+                print("** MAESTROS **")
+                for maestro in self.lista_maestros:
+                    print(maestro.mostrar_info_maestro())
+    
+    def eliminar_maestro(self, numero_control: str):
+        for maestro in self.lista_maestros:
+            if maestro.numero_control == numero_control:
+                self.lista_maestros.remove(maestro)
+                print("MAESTRO ELIMINADO.")
+                return
+        print(f"No se encontró el maestro con el número de control: {numero_control}")
+
+
+
+    def listar_materias(self):
+        if not self.lista_materias:
+            print("No hay materias registradas.")
+        else:
+            print("** MATERIAS **")
+            for materia in self.lista_materias:
+                print(materia.mostrar_info_materia())
+
+    
+    def eliminar_materia(self, numero_control_materia: str):
+        for materia in self.lista_materias:
+            if materia.numero_control == numero_control_materia:
+                self.lista_materias.remove(materia)
+                print("MATERIA ELIMINADA.")
+                return
+        print(f"No se encontró la materia con el número de control: {numero_control_materia}")
+
+    
 
     
 

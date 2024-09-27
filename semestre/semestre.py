@@ -12,6 +12,7 @@ class Semestre:
 
 def __init__(self, numero: int, id_carrera: str):
     self.id = self.generar_id(numero)
+    self.id_carrera = id_carrera
 
 def generar_id(self, numero_semestre: int) -> str:
     id = f"{numero_semestre}-{randint(0, 10000)}-{randint(0, 10000)}"

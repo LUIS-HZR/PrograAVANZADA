@@ -12,4 +12,5 @@ class Grupo:
     
     
     def __init__(self):
-        i
+        
+        return
