@@ -1,7 +1,6 @@
 from typing import List
 from materias.materia import Materia
 from grupos.grupo import Grupo
-from semestre.semestre import Semestre
 from random import randint
 
 class Semestre:

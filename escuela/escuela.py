@@ -9,8 +9,10 @@ from semestre.semestre import Semestre
 from random import randint
 
 
+
 class Escuela:
     
+
     def __init__(self):
         self.lista_estudiantes: List[Estudiante] = []
         self.lista_maestros: List[Maestro] = []
