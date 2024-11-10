@@ -17,7 +17,7 @@ def ingresar_producto():
         
 
     except ErrorProducto as e:
-        messagebox.showerror("Error", str(e))}
+        messagebox.showerror("Error", str(e))
     except ErrorPrecio as e:
         messagebox.showerror("Error", str(e))
     except ErrorCantidad as e:
