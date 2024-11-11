@@ -6,20 +6,12 @@ class ErrorProducto(Exception):
         self.mensaje=mensaje
         super().__init__(self.mensaje)
 
-
-    def escribirNombre(nombre):
-        if(nombre==""):
-            raise ErrorProducto("INGRESE NOMBRE VALIDO, NO SE ACEPTAN ESPACIOS VACIOS")
         
         
 class ErrorPrecio(Exception):
     def __init__(self, mensaje="INGRESE DATOS VALIDOS"):
         self.mensaje=mensaje
         super().__init__(self.mensaje)
-
-    def escribirPrecio(precio):
-        if(precio <= "0"):
-            raise ErrorPrecio("INGRESE PRECIO VALIDO, NO PUEDE SER CERO NI MENOR A CERO")
         
         
 class ErrorCantidad(Exception):
@@ -27,9 +19,6 @@ class ErrorCantidad(Exception):
         self.mensaje=mensaje
         super().__init__(self.mensaje)
             
-    def escribirCantidad(cantidad):
-        if(cantidad <= "0"):
-            raise ErrorCantidad("INGRESE CANTIDAD VALIDA, NO PUEDE SER MENOR A CERO")
         
 
 

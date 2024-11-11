@@ -14,14 +14,15 @@ def ingresar_producto():
 
         producto = Producto(nombre, precio, cantidad)
         Tienda.ingresar_producto(producto)
-        
+
+        messagebox.showinfo("*", "Producto agregado")
 
     except ErrorProducto as e:
-        messagebox.showerror("Error", str(e))
+        messagebox.showerror("Error no se permiten espacios vacios", str(e))
     except ErrorPrecio as e:
-        messagebox.showerror("Error", str(e))
+        messagebox.showerror("Error no se permiten precios negativos ni iguales a 0", str(e))
     except ErrorCantidad as e:
-        messagebox.showerror("Error", str(e))
+        messagebox.showerror("Error no se permten cantidades negativas", str(e))
 
 
 
